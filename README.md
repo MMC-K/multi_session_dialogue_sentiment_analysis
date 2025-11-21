@@ -1,6 +1,8 @@
-# CENET 학습 가이드
+# 복합대화2 멀티 세션 대화 감성 분석 모델 학습 및 추론 코드
 
-이 문서는 `config_regression.json`을 사용하여 CENET 모델을 학습하는 방법을 설명합니다. 커스텀 데이터셋을 MOSEI 형식으로 준비하여 학습하는 과정을 다룹니다.
+이 문서는 `config_regression.json`을 사용하여 멀티 모달 감정 분석 모델인 CENET 모델을 학습하는 방법을 설명합니다.
+`멀티 모달 대화 모델을 위한 패션 지식 대화 데이터 셋` ([링크](https://github.com/MMC-K/multimodal_fashion_dialog_dataset))과 같은
+커스텀 데이터셋을 MOSEI 형식으로 준비하여 학습하는 과정을 다룹니다.
 
 ## 환경 설정
 
@@ -317,12 +319,26 @@ CENET는 데이터셋에 따라 다음 메트릭을 계산합니다:
 
 #### MOSEI/MOSI 형식 데이터셋
 
+- **Mult_acc_3**: 3-class Multiclass Accuracy (-1 ~ 1 범위)
 - **MAE**: Mean Absolute Error
 - **Corr**: Pearson Correlation
-- **Has0_acc_2**: 2-class Accuracy (0 포함, >= 0 vs < 0)
-- **Has0_F1_score**: F1 Score (0 포함)
 - **Non0_acc_2**: 2-class Accuracy (0 제외, > 0 vs < 0)
 - **Non0_F1_score**: F1 Score (0 제외)
-- **Mult_acc_3**: 3-class Multiclass Accuracy (-1 ~ 1 범위)
-- **Mult_acc_5**: 5-class Multiclass Accuracy (-2 ~ 2 범위)
-- **Mult_acc_7**: 7-class Multiclass Accuracy (-3 ~ 3 범위)
+
+
+# `멀티 모달 대화 모델을 위한 패션 지식 대화 데이터 셋`에서 성능 결과
+아래는 멀티 모달 대화 내 감성 분석 수행 결과의 성능이다.
+
+| Mult_acc_3 |   MAE   |  Corr  | Non0_acc_2 | Non0_F1_score |
+|-----------:|:-------:|:------:|:----------:|:-------------:|
+|   0.9912   | 0.0133  | 0.9772 |   0.9907   |    0.9907     |
+
+<멀티 모달 대화 내 감성 분석 결과>
+
+- 부정/비부정(Has0) 지표를 제외하고 종합적으로 매우 높은 정확도와 일관성을 보인다.  
+- 모델의 전체 3클래스 감성 분류 정확도(Mult_acc_3)가 매우 높게 나타났으며, MAE와 Corr를 통해 실제 감정 레이블과 높은 일관성을 보임을 알 수 있다.  
+- 중립을 제외한 긍정/부정(Non0) 분류에서는 정확도와 F1 점수가 높게 나타났다. 이는 중립이 제거되었을 때 모델이 명확한 감성들을 보다 안정적으로 구분할 수 있음을 나타낸다.
+
+  
+# Acknowledgement
+본 연구는 정부(과학기술정보통신부)의 재원으로 지원을 받아 수행된 연구입니다. (No. RS-2022-II220320, 상황인지 및 사용자 이해를 통한 인공지능 기반 1:1 복합대화 기술 개발)
