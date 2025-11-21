@@ -1,0 +1,30 @@
+{
+  "video": {
+    "tool": "mediapipe",
+    "fps": 12,
+    "args": {
+      "holistic": {
+        "model_complexity": 0,
+        "smooth_landmarks": true,
+        "enable_segmentation": true,
+        "smooth_segmentation": true,
+        "min_detection_confidence": 0.5,
+        "min_tracking_confidence": 0.5
+      },
+      "visualize": false,
+      "visualize_dir": "~/.MMSA-FET/visualize",
+      "image_embedder": {
+        "enable": true,
+        "model_path": "/home/ujeong/tmp/mobilenet_v3_small.tflite",
+        "embedder_stride": 3,
+        "dtype": "float16"
+      }
+    }
+  },
+  "text": {
+    "model": "bert",
+    "device": "cpu",
+    "pretrained": "bert-base-multilingual-cased",
+    "args": { "pooling": "cls", "max_length": 128, "batch_size": 64, "normalize": true }
+  }
+}

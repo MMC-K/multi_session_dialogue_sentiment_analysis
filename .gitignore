@@ -1,0 +1,11 @@
+# examples
+/.venv/
+/data/
+/checkpoints/
+/logs/
+*.pth
+*.ckpt
+*.log
+*.ipynb_checkpoints/
+__pycache__/
+/MOSEI/

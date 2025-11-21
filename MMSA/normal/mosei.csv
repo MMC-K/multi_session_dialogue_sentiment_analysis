@@ -1,0 +1,2 @@
+Model,Has0_acc_2,Has0_F1_score,Non0_acc_2,Non0_F1_score,Mult_acc_3,Mult_acc_5,Mult_acc_7,MAE,Corr,Loss
+cenet,"(np.float64(99.59), np.float64(0.0))","(np.float64(99.59), np.float64(0.0))","(np.float64(98.61), np.float64(0.0))","(np.float64(98.61), np.float64(0.0))","(np.float64(99.34), np.float64(0.0))","(np.float64(99.34), np.float64(0.0))","(np.float64(99.34), np.float64(0.0))","(np.float64(1.08), np.float64(0.0))","(np.float64(98.3), np.float64(0.0))","(np.float64(1.12), np.float64(0.0))"
